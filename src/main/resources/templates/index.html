@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tree-Table UI</title>
+    <!-- Add CSS and JS libraries if required -->
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Children</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="parent : ${parents}">
+                <td th:text="${parent.name}"></td>
+                <td th:text="${parent.age}"></td>
+                <td>
+                    <ul>
+                        <li th:each="child : ${parent.children}" th:text="${child.name + ' (' + child.age + ')'}"></li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
